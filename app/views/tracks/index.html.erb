@@ -1,0 +1,32 @@
+<% if current_user %>
+  <% #Create new track %>
+  <%= form_for @track do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 5, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :start %>
+      <%= f.datetime_select :start %>
+    </div>
+    <div class="form-group">
+      <%= f.label :stop %>
+      <%= f.datetime_select :stop %>
+    </div>
+    <%= f.submit "Start Tracking", class: "btn btn-primary"%>
+  <% end %>
+
+  <% #List all user tracks %>
+  <% @tracks.each do |track| %>
+  <%= render 'track', track: track %>
+  <% end %>
+<% else %>
+  <div class="jumbotron">
+    <h1>Welcome to IW_Trackapp!</h1>
+    <p>Thanks for checking us out!</p>
+  </div>
+<% end %>
