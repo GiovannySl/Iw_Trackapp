@@ -1,0 +1,21 @@
+
+<div class="track" data-id="<%= track.user_id %>">
+
+  <div class="track__header">
+        <strong><%= track.name %></strong>
+  </div>
+
+  <div class="track__body">
+    <div class="track__description">
+      <%= track.description %>
+      <div class="track__time">
+      <%= (track.stop - track.start )/60/60  %>
+      </div>
+    </div>
+  </div>
+  <div class="track__footer">
+    <div class="track__published">
+    <%= time_ago_in_words track.created_at %>
+    </div>
+  </div>
+</div>
