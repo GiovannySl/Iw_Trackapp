@@ -11,13 +11,6 @@
         <strong><%= link_to "Trackapp", root_path, class: "navbar-brand" %></strong>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <% if current_user %>
-        <ul class="nav navbar-nav">
-          <li class="<%= 'active' if current_page?(tracks_new_path) %>">
-            <%= link_to "New track", tracks_new_path %>
-          </li>
-        </ul>
-        <% end %>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li class="<%= 'active' if current_page?(root_path) %>">

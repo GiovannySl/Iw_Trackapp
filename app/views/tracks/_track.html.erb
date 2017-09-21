@@ -8,7 +8,9 @@
   <div class="track__body">
     <div class="track__description">
       <%= track.description %>
-      <div class="track__comments"></div>
+      <div class="track__time">
+      <%= (track.stop - track.start )/60/60  %>
+      </div>
     </div>
   </div>
   <div class="track__footer">

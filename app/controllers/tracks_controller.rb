@@ -11,8 +11,7 @@ class TracksController < ApplicationController
   end
 
   def create
-    @track = current_user.tracks.new(track_params)
-    debugger
+    @track = current_user.tracks.new(track_params.except(:run))
     if @track.save
       # ActionCable.server.broadcast 'comments_channel',
       # post: @comment.post,
@@ -26,6 +25,6 @@ class TracksController < ApplicationController
 
   private
     def track_params
-      params.require(:track).permit(:description, :name, :time, :start, :stop)
+      params.require(:track).permit(:description, :name, :time, :start, :stop, :run)
     end
 end
